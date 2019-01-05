@@ -1,7 +1,7 @@
 # responsive2019
 responsive web site
 
-<h1>반응형 웹 사이트 만들기(2019)</h1>
+<h1>반응형 웹 사이트 만들기(2019) - 동</h1>
 <ul>
   <li><a href="">01. 반응형 웹 사이트 만들기(2019) - 레이아웃 시멘틱 태그</a></li>
   <li><a href="">01. 반응형 웹 사이트 만들기(2019) - 레이아웃 시멘틱 태그</a></li>
@@ -17,7 +17,8 @@ responsive web site
   <li><a href="">01. 반응형 웹 사이트 만들기(2019) - 레이아웃 시멘틱 태그</a></li>
 </ul>
 
-
+<br>
+<h2>반응형 웹 사이트 만들기(2019) - 샘플</h2>
 <ul>
   <li><a href="https://webstoryboy.github.io/responsive2019/res024_01.html">01. 반응형 웹 사이트 만들기(2019) - 레이아웃 시멘틱 태그</a></li>
 </ul>
