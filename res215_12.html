@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta name="author" content="webstoryboy">
+    <meta name="description" content="반응형 사이트 따라하기">
+    <meta name="keywords" content="반응형사이트, 웹퍼블리셔, 웹접근성, HTML5, webstoryboy, webs">
+    <title>반응형 사이트 만들기 : 헤더 아이콘</title>
+
+    <!-- style -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="icon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="icon/favicon-152.png">
+    <link rel="icon" href="path/to/favicon.png">
+    <link rel="icon" href="icon/favicon-16.png" sizes="16x16"> 
+    <link rel="icon" href="icon/favicon-32.png" sizes="32x32"> 
+    <link rel="icon" href="icon/favicon-48.png" sizes="48x48"> 
+    <link rel="icon" href="icon/favicon-64.png" sizes="64x64"> 
+    <link rel="icon" href="icon/favicon-128.png" sizes="128x128">
+
+    <!-- 웹 폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Brush+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+
+    <!-- HTLM5shiv ie6~8 -->
+    <!--[if lt IE 9]> 
+        <script src="js/html5shiv.min.js"></script>
+        <script type="text/javascript">
+            alert("현재 당신이 보는 브라우저는 지원하지 않습니다. 최신 브라우저로 업데이트해주세요!");
+        </script>
+    <![endif]-->
+    <style>
+        /* reset */
+        /* 여백 초기화 */
+        body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,input,fieldset,legend,p,select,table,th,td,tr,textarea,button,form,figure,figcaption{margin:0;padding:0;}
+
+        /* a 링크 초기화 */
+        a {color: #222; text-decoration: none;}
+        a:hover {color: #2698cb;}
+
+        /* 폰트 초기화 */
+        body, input, textarea, select, button, table {font-family: 'Nanum Gothic', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.5;}
+        
+        /* 폰트 스타일 초기화 */
+        em,address {font-style: normal;}
+
+        /* 블릿기호 초기화 */
+        ul,li,ol {list-style: none;}
+
+        /* 제목 태그 초기화 */
+        h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
+        
+
+        /* style */
+        /* 레이아웃 */
+        #header {background: url(img/header_bg.jpg) repeat-x center top;  }
+        #nav {}
+        #title {}
+        #contents {}
+        #footer {}
+
+        /* 컨테이너 */
+        .container {position: relative; width: 1200px; margin: 0 auto; background: rgba(0,0,0,0.3)}
+
+        /* 헤더 */
+        .header {height: 327px;}
+        .header .header_menu {text-align: right;}
+        .header .header_menu a {color: #fff; padding: 8px 0 6px 10px; display: inline-block; transition: color 0.3s ease; font-family: 'Abel', sans-serif;}
+        .header .header_menu a:hover {color: #ccc;}
+
+        .header .header_tit { text-align: center; text-transform: uppercase; margin-top: 55px; font-family: 'Abel', sans-serif;}
+        .header .header_tit h1 {
+            font-size: 30px; 
+            color: #fff; 
+            background: #51b0dc; 
+            display: inline-block; 
+            padding: 5px 30px 5px 30px; 
+            letter-spacing: 2px; 
+            font-weight: 900;
+            transition: box-shadow 0.25s ease-in-out;
+        }
+        .header .header_tit h1:hover {
+            box-shadow: 
+                inset -9em 0 0 0 #257FAC, 
+                inset 9em 0 0 0 #257FAC;
+        }
+        .header .header_tit a {
+            font-size: 16px; 
+            color: #fff; 
+            background: #4a9abf;  
+            display: inline-block; 
+            padding: 10px 20px 10px 20px; 
+            margin-top: -7px; 
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .header .header_tit a:hover {
+            box-shadow: 
+                0 0 0 5px rgba(75,154,191,0.9) inset,
+                0 0 0 100px rgba(0,0,0,0.1) inset;
+        }
+
+        .header .header_icon {text-align: center; margin-top: 40px; padding-bottom: 45px;}
+        .header .header_icon li {display: inline; margin: 0 2px;}
+        .header .header_icon li a {
+            position: relative;
+            background-color: #3192bf;
+            border-radius: 50%;
+            width: 60px; 
+            height: 60px;  
+            color: #fff;
+            display: inline-block;
+            font-size: 35px;
+            line-height: 60px;
+            transition: all 0.3s ease;
+        }
+        .header .header_icon li a span {
+            position: absolute; 
+            opacity: 0;
+            left: 50%; top: -40px;
+            transform: translateX(-50%);
+            font-size: 12px;
+            line-height: 1.6;
+            background: #3192bf; 
+            padding: 3px 9px;
+            border-radius: 6px 0;
+            transition: all 0.3s ease;
+        }
+        .header .header_icon li a span:before {
+            content: '';
+            position: absolute;
+            left: 50%; bottom: -5px;
+            margin-left: -5px;
+            border-top: 5px solid #3192bf;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+        .header .header_icon li a:hover span {
+            opacity: 1;
+            top: -33px;
+        }
+        .header .header_icon li a:hover {
+            box-shadow: 
+                0 0 0 3px rgba(75,154,191,0.9) inset,
+                0 0 0 100px rgba(0,0,0,0.1) inset;
+        }
+
+
+        /* mediaquery */
+        /* 화면 너비 0~1220px */
+        @media (max-width: 1220px){
+            .container {width: 100%;}
+            .row {padding: 0 15px;}
+        }
+    </style>
+</head>
+<body>
+    
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="header">
+                    <div class="header_menu">
+                        <a href="http://websedu.tistory.com/">Blog</a>
+                        <a href="https://www.facebook.com/webstoryboys">facebook</a>
+                        <a href="http://richclub8.dothome.co.kr/webstandard/web/index.html">Webstandard</a>
+                    </div>
+                    <!-- //header_menu -->
+                    <div class="header_tit">
+                        <h1>Professional Web Publisher</h1><br>
+                        <a href="http://webstoryboy.co.kr">webstoryboy.co.kr</a>
+                    </div>
+                    <!-- //header_tit -->
+                    <div class="header_icon">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-html5" aria-hidden="true"></i><span>HTML5</span></a></li>
+                            <li><a href="#"><i class="fa fa-github" aria-hidden="true"></i><span>GitHub</span></a></li>
+                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i><span>Fackbook</span></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>twitter</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- //header_icon -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav id="nav">
+        <h2>반응형 사이트 전체 메뉴</h2>
+    </nav>
+    <article id="title">
+        <h2>반응형 사이트 서브 타이틀</h2>
+    </article>
+    <main>
+        <section id="contents">
+            <h2>반응형 사이트 컨텐츠</h2>
+            <section>
+                <h3>반응형 사이트 왼쪽 컨텐츠</h3>
+                <article><h4>반응형 사이트 왼쪽 컨텐츠1</h4></article>
+                <article><h4>반응형 사이트 왼쪽 컨텐츠2</h4></article>
+                <article><h4>반응형 사이트 왼쪽 컨텐츠3</h4></article>
+            </section>
+            <section>
+                <h3>반응형 사이트 가운데 컨텐츠</h3>
+                <article><h4>반응형 사이트 가운데 컨텐츠1</h4></article>
+                <article><h4>반응형 사이트 가운데 컨텐츠2</h4></article>
+                <article><h4>반응형 사이트 가운데 컨텐츠3</h4></article>
+            </section>
+            <section>
+                <h3>반응형 사이트 오른쪽 컨텐츠</h3>
+                <article><h4>반응형 사이트 오른쪽 컨텐츠1</h4></article>
+                <article><h4>반응형 사이트 오른쪽 컨텐츠2</h4></article>
+                <article><h4>반응형 사이트 오른쪽 컨텐츠3</h4></article>
+            </section>
+        </section>
+    </main>
+    <footer id="footer">
+        <h2>반응형 사이트 푸터</h2>
+    </footer>
+    
+
+    <!-- JavaScript Libraries -->
+    <script src="js/jquery.min_1.12.4.js"></script>
+    <script src="js/modernizr-custom.js"></script>
+</body>
+</html>
+
+
+
