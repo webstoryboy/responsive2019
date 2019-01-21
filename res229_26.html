@@ -6,12 +6,13 @@
     <meta name="author" content="webstoryboy">
     <meta name="description" content="반응형 사이트 따라하기">
     <meta name="keywords" content="반응형사이트, 웹퍼블리셔, 웹접근성, HTML5, webstoryboy, webs">
-    <title>반응형 사이트 만들기 : 블로그 영역(고해상도 이미지)</title>
+    <title>반응형 사이트 만들기 : 이미지 슬라이드</title>
 
     <!-- style -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/slick.css">
 
     <!-- Facebook meta tags -->
     <meta property="og:type" content="article">
@@ -70,6 +71,9 @@
 
         /* 제목 태그 초기화 */
         h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
+        
+        /* 반응형 */
+        img {width: 100%;}
         
         /* IR 효과 */
         .ir_pm {display:block; overflow:hidden; font-size:0; line-height:0; text-indent:-9999px;} /* 의미있는 이미지의 대체 텍스트를 제공하는 경우(Phark Method) */
@@ -336,6 +340,19 @@
                 .blog1 .img-normal {display: none;}
         }
 
+        /* 블로그2 */
+        .blog2 h5 {color: #fff; text-align: center; padding: 30px 30px; text-transform: uppercase;}
+        .blog2 p {padding-top: 5px;}
+        .blog2 .img-retina {
+            background-image: url(img/blog3_@1.jpg);
+            background-size: cover;
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+               only screen and (min-device-pixel-ratio: 1.5),
+               only screen and (min-resolution: 1.5dppx) {
+                .blog2 .img-retina {background-image: url(img/blog3_@2.jpg);}
+        }
+        
         /* mediaquery */
         /* 화면 너비 0~1220px */
         @media (max-width: 1220px){
@@ -574,36 +591,40 @@
 						<div class="blog1">
 							<h5 class="ir_su">Image1</h5>
 							<figure>
-								<a href="#">
-                                    <img src="img/blog1_@1.jpg" class="img-normal" alt="normal image">
-                                    <img src="img/blog1_@2.jpg" class="img-retina" alt="retina image">
-								    <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-							    </a>
+                                <img src="img/blog4_@1.jpg" class="img-normal" alt="normal image">
+                                <img src="img/blog4_@2.jpg" class="img-retina" alt="retina image">
+                                <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
 							</figure>
 						</div>
 						<!--//blog -->
 						<!-- blog2 -->
 						<div class="blog2 mt15">
-							<h5 class="ir_su">Image2</h5>
-							<figure>
-								<a href="#"><img src="img/blog2_@2.jpg"></a>
-								<figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-							</figure>
+							<div class="img-retina">
+							    <h5>Image2</h5>
+							</div>
+                            <p>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</p>
 						</div>
 						<!--//blog2 -->
 					</article>
 					<!-- //col3 -->
                 </section>
                 <!-- //cont_left -->
+                
                 <section id="cont_center">
                     <h3 class="ir_su">반응형 사이트 가운데 컨텐츠</h3>
                     <article class="column col4">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Slick Slider</h4>
+						<p class="col_desc">slick.js를 이용한 이미지 슬라이드 효과입니다.</p>
+						<!-- 이미지 슬라이드 -->
+						<div class="slider">
+							<div><img src="img/slider01.jpg" alt="이미지1"></div>
+							<div><img src="img/slider04.jpg" alt="이미지4"></div>
+							<div><img src="img/slider05.jpg" alt="이미지5"></div>
+						</div>
+						<!--//이미지 슬라이드 -->
                     </article>
                     <!-- //col4 -->
+                    
                     <article class="column col5">
                         <h4 class="col_tit">Title</h4>
 						<p class="col_desc">이 곳은 설명 부분입니다.</p>
@@ -660,14 +681,33 @@
     <!-- JavaScript Libraries -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/modernizr-custom.js"></script>
+    <script src="js/slick.min.js"></script>
     <script>
+        //이미지 슬라이더
+        $(".slider").slick({
+			dots: true,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			arrows: false,
+			responsive: [
+			    {
+				    breakpoint: 768,
+				    settings: {
+				        arrows: true,
+				        dots: false
+			      	}
+			    }
+			]
+		});
+        
+        //sns 공유하기
         $(".facebook").click(function(e){
             e.preventDefault();
             window.open('https://www.facebook.com/sharer/sharer.php?u=' +encodeURIComponent(document.URL)+'&t='+encodeURIComponent(document.title), 'facebooksharedialog', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=300, width=600'); 
         });
         $(".twitter").click(function(e){
             e.preventDefault();
-            window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20' +encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=300, width=600');"
+            window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20' +encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=300, width=600');
         });
     </script>
 </body>

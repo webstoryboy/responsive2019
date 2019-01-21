@@ -6,12 +6,14 @@
     <meta name="author" content="webstoryboy">
     <meta name="description" content="반응형 사이트 따라하기">
     <meta name="keywords" content="반응형사이트, 웹퍼블리셔, 웹접근성, HTML5, webstoryboy, webs">
-    <title>반응형 사이트 만들기 : 블로그 영역(고해상도 이미지)</title>
+    <title>반응형 사이트 만들기 : 비디오</title>
 
     <!-- style -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/lightgallery.css">
 
     <!-- Facebook meta tags -->
     <meta property="og:type" content="article">
@@ -60,7 +62,7 @@
         a:hover {color: #2698cb;}
 
         /* 폰트 초기화 */
-        body, input, textarea, select, button, table {font-family: 'Nanum Gothic', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.6;}
+        body, input, textarea, select, button, table {font-family:  'Nanum Gothic', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.6;}
         
         /* 폰트 스타일 초기화 */
         em,address {font-style: normal;}
@@ -71,6 +73,17 @@
         /* 제목 태그 초기화 */
         h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
         
+        /* 버튼 초기화 */
+        button {border: 0;}
+        
+        /* 반응형 */
+        img {width: 100%;}
+        
+        /* clearfix */
+        .clearfix{*zoom:1;}
+        .clearfix:before, .clearfix:after {display: block; content: '';line-height: 0;}
+        .clearfix:after {clear: both;}
+
         /* IR 효과 */
         .ir_pm {display:block; overflow:hidden; font-size:0; line-height:0; text-indent:-9999px;} /* 의미있는 이미지의 대체 텍스트를 제공하는 경우(Phark Method) */
         .ir_wa {display:block; overflow:hidden; position:relative; z-index:-1; width:100%; height: 100%;} /* 의미있는 이미지의 대체 텍스트로 이미지가 없어도 대체 텍스트를 보여주고자 할 때(WA IR) */
@@ -336,6 +349,107 @@
                 .blog1 .img-normal {display: none;}
         }
 
+        /* 블로그2 */
+        .blog2 h5 {color: #fff; text-align: center; padding: 30px 30px; text-transform: uppercase;}
+        .blog2 p {padding-top: 5px;}
+        .blog2 .img-retina {
+            background-image: url(img/blog3_@1.jpg);
+            background-size: cover;
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+               only screen and (min-device-pixel-ratio: 1.5),
+               only screen and (min-resolution: 1.5dppx) {
+                .blog2 .img-retina {background-image: url(img/blog3_@2.jpg);}
+        }
+        
+        /* 이미지 슬라이드 */
+        .slider figure {position: relative;}
+        .slider figcaption {position: absolute; bottom: 0; left: 0; width: 100%; padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.5);
+            color: #fff;
+            font-size: 18px;
+        }
+        .slider figcaption em {
+            display: block; 
+            font-weight: bold; font-size: 28px; text-transform: uppercase; font-family: 'Abel', sans-serif;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all .84s ease;
+        }
+        .slider figcaption span {
+            display: block;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all .84s 0.2s ease;
+        }
+        .slider .slick-active figcaption em {opacity: 1; transform: translateX(0)}
+        .slider .slick-active figcaption span {opacity: 1; transform: translateX(0)}
+        
+        .slider .slick-dots {display: block; width: 100%; text-align: center;}
+        .slider .slick-dots li {display: inline-block; width: 15px; height: 15px; margin: 5px;}
+        .slider .slick-dots li button {
+            font-size: 0; 
+            line-height: 0; 
+            display: block; 
+            width: 15px; height: 15px;
+            cursor: pointer; 
+            background: #5dbfeb; 
+            border-radius: 50%;
+        }
+        .slider .slick-dots li.slick-active button {background: #2b91c8;}
+        .slider .slick-prev {
+            position: absolute; left: 0; bottom: 0; 
+            z-index: 1000;
+            width: 30px; height: 30px; 
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-indent: -9999px;
+        }
+        .slider .slick-prev::before {
+            content: "\f053";
+            color: #5dbfeb;
+            text-indent: 0;
+            position: absolute; left: 9px; top: 8px;
+        }
+        .slider .slick-next {
+            position: absolute; right: 0; bottom: 0; 
+            z-index: 1000;
+            width: 30px; height: 30px; 
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            text-indent: -9999px;
+        }
+        .slider .slick-next::before {
+            content: "\f054";
+            color: #5dbfeb;
+            text-indent: 0;
+            position: absolute; left: 11px; top: 8px;
+        }
+        
+        /* 라이트 박스 */
+        .square a {float: left; width: 19%; margin: 0.5%; position: relative; overflow: hidden;  }
+        .square a img {width: 100%; display: block;}
+        .square a em {
+            background: rgba(0,0,0,0.77); color: #fff; width: 100%; text-align: center;
+            position: absolute; left:0; bottom: -30px; opacity: 1; transition: all .3s ease;}
+        .square a:hover em {bottom: 0; background: rgba(0,0,0,0.57); }
+        .square a:nth-child(1):hover img {filter: blur(2px);}
+        .square a:nth-child(2):hover img {filter: brightness(50%);}
+        .square a:nth-child(3):hover img {filter: contrast(10%);}
+        .square a:nth-child(4):hover img {filter: grayscale(100%);}
+        .square a:nth-child(5):hover img {filter: hue-rotate(120deg);}
+        .square a:nth-child(6):hover img {filter: invert(100%);}
+        .square a:nth-child(7):hover img {filter: opacity(10%);}
+        .square a:nth-child(8):hover img {filter: saturate(10%);}
+        .square a:nth-child(9):hover img {filter: sepia(120%);}
+        .square a:nth-child(10):hover img {filter: sepia(120%) hue-rotate(120deg);}
+        
+        /* 비디오 */
+        .video {position: relative; width: 100%; padding-bottom: 56.25%;}
+        .video iframe {position: absolute; width: 100%; height: 100%;}
+        
         /* mediaquery */
         /* 화면 너비 0~1220px */
         @media (max-width: 1220px){
@@ -345,11 +459,14 @@
 	        #contents .container {border: 0;}
             
             .title .btn {right: 15px;}
+            .square a {width: 24%}
+	        .square a:nth-child(5n) {display: none;}
         }
         
         /* 화면 너비 0~1024px */
         @media (max-width: 1024px){
-            
+            .square a {width: 32.33333%}
+	        .square a:nth-child(5) {display: block;}
         }
         
         /* 화면 너비 0~960px */
@@ -362,6 +479,11 @@
             .nav > div li {width: 33.333%;}
             .nav > div:last-child li {width: 33.333%;}
             .nav > div ol {margin-bottom: 10px;}
+            
+            #cont_right {overflow: hidden;}
+            #cont_right .column {float: left; width: 33.333%; box-sizing: border-box;}
+            #cont_right .column.col7 {border-right: 1px solid #dbdbdb; border-bottom: 0;}
+            #cont_right .column.col8 {border-right: 1px solid #dbdbdb; border-bottom: 0;}
         }
         
         /* 화면 너비 0~768px */
@@ -390,6 +512,17 @@
             .column.col1 .menu li a:hover {box-shadow: none; background: rgba(36,130,174,0.3);}
             .column.col2 {background: #fff;}
 	        .column.col4 {border-top: 1px solid #dbdbdb;}
+            
+            #cont_right .column {width:50%;}
+            #cont_right .column.col8 {border-right: 0;}
+            #cont_right .column.col9 {display: none;}
+            
+            .slider figcaption {padding: 10px;}
+            .slider figcaption em {font-size: 18px;}
+            .slider figcaption span {font-size: 14px;}
+            
+            .square a {width: 49%}
+	        .square a:nth-child(5) {display: none;}
         }
         
         /* 화면 너비 0~480px */
@@ -399,10 +532,10 @@
 
         /* 화면 너비 0~320px */
         @media (max-width: 320px){
-
+            #cont_right .column {width:100%;}
+	        #cont_right .column.col7 {border-right: 0; border-bottom: 1px solid #dbdbdb;}
+            .square a {width: 100%; margin-left:0; margin-right: 0;}
         }
-        
-        
     </style>
 </head>
 <body>
@@ -431,11 +564,6 @@
                         </ul>
                     </div>
                     <!-- //header_icon -->
-                    
-                    <!-- 
-                        https://developers.facebook.com/tools/debug/
-                        https://cards-dev.twitter.com/validator
-                    -->
                 </div>
             </div>
         </div>
@@ -574,73 +702,128 @@
 						<div class="blog1">
 							<h5 class="ir_su">Image1</h5>
 							<figure>
-								<a href="#">
-                                    <img src="img/blog1_@1.jpg" class="img-normal" alt="normal image">
-                                    <img src="img/blog1_@2.jpg" class="img-retina" alt="retina image">
-								    <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-							    </a>
+                                <img src="img/blog4_@1.jpg" class="img-normal" alt="normal image">
+                                <img src="img/blog4_@2.jpg" class="img-retina" alt="retina image">
+                                <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
 							</figure>
 						</div>
 						<!--//blog -->
 						<!-- blog2 -->
 						<div class="blog2 mt15">
-							<h5 class="ir_su">Image2</h5>
-							<figure>
-								<a href="#"><img src="img/blog2_@2.jpg"></a>
-								<figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-							</figure>
+							<div class="img-retina">
+							    <h5>Image2</h5>
+							</div>
+                            <p>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</p>
 						</div>
 						<!--//blog2 -->
 					</article>
 					<!-- //col3 -->
                 </section>
                 <!-- //cont_left -->
+                
                 <section id="cont_center">
                     <h3 class="ir_su">반응형 사이트 가운데 컨텐츠</h3>
                     <article class="column col4">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Slick Slider</h4>
+						<p class="col_desc">slick.js를 이용한 이미지 슬라이드 효과입니다.</p>
+						<!-- 이미지 슬라이드 -->
+						<div class="slider">
+							<div>
+                                <figure>
+                                    <img src="img/slider001.jpg" alt="이미지1">
+                                    <figcaption><em>Responsive Site</em><span>슬라이드 플러그인을 이용한 반응형 이미지 슬라이드 입니다.</span></figcaption>
+                                </figure>
+				            </div>
+							<div>
+                                <figure>
+                                    <img src="img/slider001.jpg" alt="이미지2">
+                                    <figcaption><em>Responsive Site</em><span>슬라이드 플러그인을 이용한 반응형 이미지 슬라이드 입니다.</span></figcaption>
+                                </figure>
+				            </div>
+				            <div>
+                                <figure>
+                                    <img src="img/slider001.jpg" alt="이미지3">
+                                    <figcaption><em>Responsive Site</em><span>슬라이드 플러그인을 이용한 반응형 이미지 슬라이드 입니다.</span></figcaption>
+                                </figure>
+				            </div>
+						</div>
+						<!--//이미지 슬라이드 -->
                     </article>
                     <!-- //col4 -->
+                    
                     <article class="column col5">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Filter Effect</h4>
+						<p class="col_desc">CSS3에서는 Background-blend-mode, mix-blend-mode, filter와 같이 포토샵에 다루는 효과들이 있습니다.</p>
+						<!-- lightbox -->
+						<div class="lightbox square clearfix">
+							<a href="img/light01_s.jpg"><img src="img/light01.jpg" alt="이미지"><em>blur</em></a>
+							<a href="img/light02_s.jpg"><img src="img/light02.jpg" alt="이미지"><em>brightness</em></a>
+							<a href="img/light03_s.jpg"><img src="img/light03.jpg" alt="이미지"><em>contrast</em></a>
+							<a href="img/light04_s.jpg"><img src="img/light04.jpg" alt="이미지"><em>grayscale</em></a>
+							<a href="img/light05_s.jpg"><img src="img/light05.jpg" alt="이미지"><em>hue-rotate</em></a>
+							<a href="img/light06_s.jpg"><img src="img/light06.jpg" alt="이미지"><em>invert</em></a>
+							<a href="img/light07_s.jpg"><img src="img/light07.jpg" alt="이미지"><em>opacity</em></a>
+							<a href="img/light08_s.jpg"><img src="img/light08.jpg" alt="이미지"><em>saturate</em></a>
+							<a href="img/light09_s.jpg"><img src="img/light09.jpg" alt="이미지"><em>sepia</em></a>
+							<a href="img/light10_s.jpg"><img src="img/light10.jpg" alt="이미지"><em>Mix</em></a>
+						</div>
+						<!--//lightbox -->
                     </article>
                     <!-- //col5 -->
+                    
                     <article class="column col6">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
-                    </article>
-                    <!-- //col6 -->
+						<h4 class="col_tit">Video</h4>
+						<p class="col_desc">영상을 보여주는 영역입니다.</p>
+						<!-- video -->
+						<!-- <video autoplay="autoplay" controls="controls" loop="loop">
+							<source src="img/video.mp4" type="video/mp4">
+						</video> -->
+						<div class="video">
+							<iframe src="https://www.youtube.com/embed/tHy498wdPaA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+						<!--//video -->
+					</article>
+					<!-- //col6 -->
                 </section>
                 <!-- //cont_center -->
                 <section id="cont_right">
                     <h3 class="ir_su">반응형 사이트 오른쪽 컨텐츠</h3>
                     <article class="column col7">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Effect1</h4>
+						<p class="col_desc">CSS3의 transform을 이용한 마우스 오버효과입니다.</p>
+						<!-- side1 -->
+						<div class="side1">
+                            <figure>
+                                <img src="img/side1.jpg" alt="이미지2">
+                            </figure>
+                        </div>
+                        <!-- side1//-->
                     </article>
                     <!-- //col7 -->
+                    
                     <article class="column col8">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Effect2</h4>
+						<p class="col_desc">CSS3의 transform을 이용한 마우스 오버효과입니다.</p>
+						<!-- side2 -->
+						<div class="side2">
+                            <figure>
+                                <img src="img/side2.jpg" alt="이미지2">
+                            </figure>
+                        </div>
+                        <!-- side2//-->
                     </article>
                     <!-- //col8 -->
+                    
                     <article class="column col9">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Effect3</h4>
+						<p class="col_desc">CSS3의 transform을 이용한 마우스 오버효과입니다.</p>
+						<!-- side3 -->
+						<div class="side3">
+                            <figure>
+                                <img src="img/side3.jpg" alt="이미지2">
+                            </figure>
+                        </div>
+                        <!-- side3//-->
                     </article>
                     <!-- //col9 -->
                 </section>
@@ -660,14 +843,41 @@
     <!-- JavaScript Libraries -->
     <script src="js/jquery.min_1.12.4.js"></script>
     <script src="js/modernizr-custom.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/lightgallery.min.js"></script>
     <script>
+        //라이트 박스
+        $(".lightbox").lightGallery({
+            thumbnail: true,
+            autoplay: true,
+            pause: 3000,
+            progressBar: true
+        }); 
+
+        //이미지 슬라이더
+        $(".slider").slick({
+			dots: true,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			arrows: true,
+			responsive: [
+			    {
+				    breakpoint: 768,
+				    settings: {
+				        autoplay: false,
+			      	}
+			    }
+			]
+		});
+        
+        //sns 공유하기
         $(".facebook").click(function(e){
             e.preventDefault();
             window.open('https://www.facebook.com/sharer/sharer.php?u=' +encodeURIComponent(document.URL)+'&t='+encodeURIComponent(document.title), 'facebooksharedialog', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=300, width=600'); 
         });
         $(".twitter").click(function(e){
             e.preventDefault();
-            window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20' +encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=300, width=600');"
+            window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20' +encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog', 'menubar=no, toolbar=no, resizable=yes, scrollbars=yes, height=300, width=600');
         });
     </script>
 </body>

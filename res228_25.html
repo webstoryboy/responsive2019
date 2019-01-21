@@ -336,6 +336,19 @@
                 .blog1 .img-normal {display: none;}
         }
 
+        /* 블로그2 */
+        .blog2 h5 {color: #fff; text-align: center; padding: 30px 30px; text-transform: uppercase;}
+        .blog2 p {padding-top: 5px;}
+        .blog2 .img-retina {
+            background-image: url(img/blog3_@1.jpg);
+            background-size: cover;
+        }
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+               only screen and (min-device-pixel-ratio: 1.5),
+               only screen and (min-resolution: 1.5dppx) {
+                .blog2 .img-retina {background-image: url(img/blog3_@2.jpg);}
+        }
+        
         /* mediaquery */
         /* 화면 너비 0~1220px */
         @media (max-width: 1220px){
@@ -574,21 +587,18 @@
 						<div class="blog1">
 							<h5 class="ir_su">Image1</h5>
 							<figure>
-								<a href="#">
-                                    <img src="img/blog1_@1.jpg" class="img-normal" alt="normal image">
-                                    <img src="img/blog1_@2.jpg" class="img-retina" alt="retina image">
-								    <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-							    </a>
+                                <img src="img/blog4_@1.jpg" class="img-normal" alt="normal image">
+                                <img src="img/blog4_@2.jpg" class="img-retina" alt="retina image">
+                                <figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
 							</figure>
 						</div>
 						<!--//blog -->
 						<!-- blog2 -->
 						<div class="blog2 mt15">
-							<h5 class="ir_su">Image2</h5>
-							<figure>
-								<a href="#"><img src="img/blog2_@2.jpg"></a>
-								<figcaption>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</figcaption>
-							</figure>
+							<div class="img-retina">
+							    <h5>Image2</h5>
+							</div>
+                            <p>반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다. 반응형 웹 사이트 이미지 글입니다.</p>
 						</div>
 						<!--//blog2 -->
 					</article>
