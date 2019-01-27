@@ -6,7 +6,7 @@
     <meta name="author" content="webstoryboy">
     <meta name="description" content="반응형 사이트 따라하기">
     <meta name="keywords" content="반응형사이트, 웹퍼블리셔, 웹접근성, HTML5, webstoryboy, webs">
-    <title>반응형 사이트 만들기 : 비디오</title>
+    <title>반응형 사이트 만들기 : 사이드 이펙트3</title>
 
     <!-- style -->
     <link rel="stylesheet" href="css/reset.css">
@@ -431,9 +431,7 @@
         /* 라이트 박스 */
         .square a {float: left; width: 19%; margin: 0.5%; position: relative; overflow: hidden;  }
         .square a img {width: 100%; display: block;}
-        .square a em {
-            background: rgba(0,0,0,0.77); color: #fff; width: 100%; text-align: center;
-            position: absolute; left:0; bottom: -30px; opacity: 1; transition: all .3s ease;}
+        .square a em {background: rgba(0,0,0,0.77); color: #fff; width: 100%; text-align: center; position: absolute; left:0; bottom: -30px; opacity: 1; transition: all .3s ease;}
         .square a:hover em {bottom: 0; background: rgba(0,0,0,0.57); }
         .square a:nth-child(1):hover img {filter: blur(2px);}
         .square a:nth-child(2):hover img {filter: brightness(50%);}
@@ -449,6 +447,99 @@
         /* 비디오 */
         .video {position: relative; width: 100%; padding-bottom: 56.25%;}
         .video iframe {position: absolute; width: 100%; height: 100%;}
+        
+        /* 푸터 */
+        .footer {text-align: center; padding: 30px 50px; }
+        .footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+        .footer li:before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb; position: absolute; left: 0; top: 2px;}
+        .footer li:first-child:before {width: 0;}
+        .footer address {padding-top: 15px;}
+        
+        /* 사이드 이펙트1 */
+        .side1 {position: relative; display: block; perspective: 600px;}
+        .side1 .front {
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+        }
+        .side1 .back {
+            position: absolute; top: 0; left: 0; 
+            width: 100%; height: 100%; z-index: -1;
+            transform-style: preserve-3d;
+            color: #fff;
+            background: #4038DC;
+            text-align: center;
+            transform: rotateY(-180deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+        }
+        .side1 .back i {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+        .side1:hover .front {transform: rotateY(180deg);}
+        .side1:hover .back {transform: rotateY(0deg); z-index: 1;}
+        
+        /* 사이드 이펙트2 */
+        .side2 {position: relative; display: block; perspective: 600px;}
+        .side2 .front {
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+        }
+        .side2 .back {
+            position: absolute; top: 0; left: 0; 
+            width: 100%; height: 100%; z-index: -1;
+            transform-style: preserve-3d;
+            transform: rotateY(-180deg);
+            transition: all 0.5s ease-in-out;
+            backface-visibility: hidden;
+        }
+        .side2 .front figcaption {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%,-50%) translateZ(100px);
+            display: block;
+            text-align: center;
+        }
+        .side2 .back figcaption {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%,-50%) translateZ(100px);
+            color: #fff;
+            font-size: 20px;
+            display: block;
+            text-align: center;
+        }
+        .side2 figcaption {width: 60%;}
+        .side2 figcaption h3 {color: #fff; font-size: 20px; font-family: 'Abel', sans-serif; font-weight: bold; background: rgba(0,0,0,0.4); padding: 3px 10px;}
+        .side2 figcaption p {font-size: 14px;}
+        .side2:hover .front {transform: rotateY(180deg);}
+        .side2:hover .back {transform: rotateY(0deg); z-index: 1;}
+        
+        /* 사이드 이펙트3 */
+        .side3 {position: relative; overflow: hidden; background: #000;}
+        .side3 figcaption {
+            position: absolute;
+	        top: 50%; left: 50%;
+            color: #fff;
+            text-align: center;
+            opacity: 0;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+	        transform: translate(350%, -50%) rotate(180deg);
+        }
+        .side3 figcaption:after {
+            content: '';
+            width: 100px; height: 100px; 
+            background: #000; 
+            border-radius: 50%;
+            position: absolute; left: 50%; top: 50%; z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        .side3 figcaption h3 {font-size: 16px;}
+        .side3 figcaption em {display: block; font-weight: bold;}
+        .side3 img {display: block; transition: all 0.3s ease;}
+        .side3:hover img {opacity: 0.4;}
+        .side3:hover figcaption {transform: translate(-50%, -50%) rotate(0deg); opacity: 1;}
+        
         
         /* mediaquery */
         /* 화면 너비 0~1220px */
@@ -479,6 +570,11 @@
             .nav > div li {width: 33.333%;}
             .nav > div:last-child li {width: 33.333%;}
             .nav > div ol {margin-bottom: 10px;}
+            
+            #cont_right {overflow: hidden;}
+            #cont_right .column {float: left; width: 33.333%; box-sizing: border-box;}
+            #cont_right .column.col7 {border-right: 1px solid #dbdbdb; border-bottom: 0;}
+            #cont_right .column.col8 {border-right: 1px solid #dbdbdb; border-bottom: 0;}
         }
         
         /* 화면 너비 0~768px */
@@ -508,6 +604,10 @@
             .column.col2 {background: #fff;}
 	        .column.col4 {border-top: 1px solid #dbdbdb;}
             
+            #cont_right .column {width:50%;}
+            #cont_right .column.col8 {border-right: 0;}
+            #cont_right .column.col9 {display: none;}
+            
             .slider figcaption {padding: 10px;}
             .slider figcaption em {font-size: 18px;}
             .slider figcaption span {font-size: 14px;}
@@ -523,6 +623,8 @@
 
         /* 화면 너비 0~320px */
         @media (max-width: 320px){
+            #cont_right .column {width:100%;}
+	        #cont_right .column.col7 {border-right: 0; border-bottom: 1px solid #dbdbdb;}
             .square a {width: 100%; margin-left:0; margin-right: 0;}
         }
     </style>
@@ -762,7 +864,7 @@
                     
                     <article class="column col6">
 						<h4 class="col_tit">Video</h4>
-						<p class="col_desc">반응형 영상을 보여주는 영역입니다.</p>
+						<p class="col_desc">영상을 보여주는 영역입니다.</p>
 						<!-- video -->
 						<!-- <video autoplay="autoplay" controls="controls" loop="loop">
 							<source src="img/video.mp4" type="video/mp4">
@@ -778,24 +880,56 @@
                 <section id="cont_right">
                     <h3 class="ir_su">반응형 사이트 오른쪽 컨텐츠</h3>
                     <article class="column col7">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Effect1</h4>
+						<p class="col_desc">CSS3의 transform을 이용한 마우스 오버효과입니다.</p>
+						<!-- side1 -->
+						<div class="side1">
+                            <figure class="front">
+                                <img src="img/side1.jpg" alt="이미지2">
+                            </figure>
+                            <div class="back">
+                                <i class="fa fa-heart fa-4x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <!-- side1//-->
                     </article>
                     <!-- //col7 -->
+                    
                     <article class="column col8">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Effect2</h4>
+						<p class="col_desc">CSS3의 transform을 이용한 마우스 오버효과입니다.</p>
+						<!-- side2 -->
+						<div class="side2">
+                            <figure class="front">
+                                <img src="img/side2.jpg" alt="이미지2">
+                                <figcaption>
+                                    <h3>Hover Effect</h3>
+                                </figcaption>
+                            </figure >
+                            <figure class="back">
+                                <img src="img/side4.jpg" alt="이미지2">
+                                <figcaption>
+                                    <h3>Hover Effect</h3>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <!-- side2//-->
                     </article>
                     <!-- //col8 -->
+                    
                     <article class="column col9">
-                        <h4 class="col_tit">Title</h4>
-						<p class="col_desc">이 곳은 설명 부분입니다.</p>
-						<!--  -->
-                        <!-- //-->
+                        <h4 class="col_tit">Effect3</h4>
+						<p class="col_desc">CSS3의 transform을 이용한 마우스 오버효과입니다.</p>
+						<!-- side3 -->
+						<div class="side3">
+                            <figure>
+                                <img src="img/side3.jpg" alt="이미지3">
+                                <figcaption>
+                                    <h3>Hover<em>Effect</em></h3>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <!-- side3//-->
                     </article>
                     <!-- //col9 -->
                 </section>
@@ -807,7 +941,24 @@
     
     <footer id="footer">
         <div class="container">
-            <h2>반응형 사이트 푸터</h2>
+            <div class="row">
+                <div class="footer">
+                    <ul>
+                        <li><a href="#">사이트 도움말</a></li>
+                        <li><a href="#">사이트 이용약관</a></li>
+                        <li><a href="#">사이트 운영원칙</a></li>
+                        <li><a href="#"><strong>개인정보취급방침</strong></a></li>
+                        <li><a href="#">책임의 한계와 법적고지</a></li>
+                        <li><a href="#">게시중단요청서비스</a></li>
+                        <li><a href="#">고객센터</a></li>
+                    </ul>
+                    <address>
+                        Copyright &copy;
+                        <a href="http://webstoryboy.co.kr"><strong>webstoryboy</strong></a>
+                        All Rights Reserved.
+                    </address>
+                </div>
+            </div>
         </div>
     </footer>
     <!-- //footer -->
@@ -818,6 +969,30 @@
     <script src="js/slick.min.js"></script>
     <script src="js/lightgallery.min.js"></script>
     <script>
+        //접기/펼치기
+        $(".btn").click(function(e){
+            e.preventDefault();
+            $(".nav").slideToggle();
+            $(".btn").toggleClass("open");
+            //var btn = $(".btn").find(">i").attr("class");
+            //alert(btn);
+
+            if($(".btn").hasClass("open")){
+                //open이 있을 때
+                $(".btn").find(">i").attr("class","fa fa-angle-up");
+            } else {
+                //open이 없을 때
+                $(".btn").find(">i").attr("class","fa fa-angle-down");
+            }
+        });
+        
+        $(window).resize(function(){
+            var wWidth = $(window).width();
+            if(wWidth > 600){
+                $(".nav").removeAttr("style");
+            }
+        });
+        
         //라이트 박스
         $(".lightbox").lightGallery({
             thumbnail: true,
